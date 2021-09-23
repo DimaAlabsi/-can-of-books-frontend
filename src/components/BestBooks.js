@@ -19,7 +19,7 @@ class BestBooks extends React.Component {
   render() {
     // console.log(this.state.books);
 
-    console.log(this.props.books);
+    // console.log(this.props.books);
 
     return (
       <>
