@@ -24,7 +24,8 @@ class App extends React.Component {
       status: "",
       email: "",
       id: "",
-      showUpdate:false
+      showUpdate:false,
+      doneDel:false
     }
   }
 
@@ -128,10 +129,21 @@ callApi = () => {
       .then((res) => {
         this.setState({
           books: res.data,
+          doneDel:true
+          
         });
-        console.log(res.data);
+        console.log(this.state.doneDel,3)
       })
-  }
+      this.state.doneDel&&
+      console.log(this.state.books , 2222);
+      console.log(this.state.doneDel , 11);
+
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/books`)
+      .then((res) => {
+        this.setState({
+          books: res.data
+        });
+      })  }
 
   // ------------------
   handleUpdate = (title,email, status,description, id) => {
